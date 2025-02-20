@@ -1,0 +1,6 @@
+#editor {
+    height: 300px; /* Atur tinggi editor */
+    max-height: 500px; /* Batas tinggi maksimal */
+    overflow-y: auto; /* Supaya bisa di-scroll */
+    background: #fff; /* Pastikan background putih */
+}
