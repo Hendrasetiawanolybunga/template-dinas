@@ -1,24 +1,34 @@
 @extends('backend.layouts.master')
 @section('favicon')
-    <link rel="shortcut icon" href="{{ asset('storage/' . $icon->favicon) }}">
+    @if ($icon && $icon->favicon)
+        <link rel="shortcut icon" href="{{ asset('storage/' . $icon->favicon) }}">
+    @else
+        <p>logo</p>
+    @endif
+
 @endsection
 @section('title', 'Dashboard')
 @section('content')
-<div class="row">
-    <div class="card rounded shadow mb-3 p-4">
-        <div class="row">
-            <div class="col d-flex-box align-items-center">
-                <h3 class="card-title text-info">Selamat Datang {{ $nama->name }}</h3>
-               
-                <p>Terimah Kasih sudah Login ✨</p>
+    <div class="row">
+        <div class="card rounded shadow mb-3 p-4">
+            <div class="row">
+                <div class="col d-flex-box align-items-center">
+                    <h3 class="card-title text-info">Selamat Datang {{ $nama->name }}</h3>
+
+                    <p>Terimah Kasih sudah Login ✨</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    @if ($icon && $icon->favicon)
+                        <img src="{{ asset('storage/' . $settings->logo) }}" alt="Logo" class="rounded" width="80">
+                    @else
+                        <h2>Logo Dinas</h2>
+                    @endif
+
+                </div>
             </div>
-            <div class="col-md-3 text-center">
-                <img src="{{ asset('storage/' . $settings->logo) }}" alt="Logo" class="rounded" width="80">
-            </div>
+
         </div>
-       
     </div>
-</div>
     <div class="row">
         <div class="col-md-4">
             <div class="card bg-primary text-white">

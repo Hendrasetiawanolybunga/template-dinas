@@ -7,6 +7,9 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use App\Models\Setting; 
 use App\Models\Profil; 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
 
 
 class AppServiceProvider extends ServiceProvider
@@ -22,11 +25,21 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    // public function boot(): void
+    // {
+    //     Paginator::useBootstrap();
+    //     View::share('settings', Setting::first());
+    //     View::share('profil', Profil::first());
+    // }
+
+    public function boot()
     {
-        Paginator::useBootstrap();
-        View::share('settings', Setting::first());
-        View::share('profil', Profil::first());
+        if (Schema::hasTable('settings')) { 
+            $settings = DB::table('settings')->first();
+            $profil = Profil::first();
+            View::share('settings', $settings);
+            View::share('profil', Profil::first());
+        }
     }
 
 

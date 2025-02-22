@@ -32,8 +32,16 @@
                         <div class="card-header pt-4 text-center">
                             <div class="auth-brand mb-0">
                                 <a href="{{ url('/') }}" class="logo-dark">
-                                    <img src="{{ asset('storage/' . $settings->logo) }}" alt="Logo" class="rounded" width="60">
-                                </a>                             
+                                    @if ($settings && $settings->logo)
+                                        <img src="{{ asset('storage/' . $settings->logo) }}" alt="Logo"
+                                            class="rounded" width="60">
+                                   
+                                       
+                                   @else
+                                       <h3>Logo Dinas</h3>
+                                   @endif
+                                            
+                                </a>
                             </div>
                         </div>
 
@@ -59,14 +67,16 @@
 
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">Email</label>
-                                    <input class="form-control" type="email" name="email" id="emailaddress" required placeholder="Enter your email">
+                                    <input class="form-control" type="email" name="email" id="emailaddress" required
+                                        placeholder="Enter your email">
                                 </div>
 
                                 <div class="mb-3">
                                     <a href="#" class="text-muted float-end fs-12">Forgot your password?</a>
                                     <label for="password" class="form-label">Password</label>
                                     <div class="input-group input-group-merge">
-                                        <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password">
+                                        <input type="password" name="password" id="password" class="form-control"
+                                            placeholder="Enter your password">
                                         <div class="input-group-text" data-password="false">
                                             <span class="password-eye"></span>
                                         </div>
@@ -86,7 +96,7 @@
                             </form>
                         </div> <!-- end card-body -->
                     </div>
-                    <!-- end card -->                  
+                    <!-- end card -->
                     <!-- end row -->
                 </div> <!-- end col -->
             </div>
@@ -97,7 +107,11 @@
     <!-- end page -->
 
     <footer class="footer footer-alt">
-        <span class="text-white-50"><script>document.write(new Date().getFullYear())</script> © Jidox - Coderthemes.com</span>
+        <span class="text-white-50">
+            <script>
+                document.write(new Date().getFullYear())
+            </script> © Jidox - Coderthemes.com
+        </span>
     </footer>
 
     <!-- Vendor js -->
@@ -107,4 +121,5 @@
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
 
 </body>
+
 </html>
