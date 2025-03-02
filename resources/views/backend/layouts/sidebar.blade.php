@@ -66,10 +66,19 @@
                 <div class="collapse" id="sidebarEmail">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="{{ route('layanan.index') }}"><i class="ri-arrow-right-double-fill"></i> Layanan Publik</a>
+                            <a href="{{ route('penduduk.index') }}"><i class="ri-arrow-right-double-fill"></i> Data Penduduk</a>
                         </li>
                         <li>
-                            <a href="{{ route('kategori-layanan.index') }}"><i class="ri-arrow-right-double-fill"></i> Kategori Layanan</a>
+                            <a href="{{ route('kategori_layanan.index') }}"><i class="ri-arrow-right-double-fill"></i> Kategori Layanan</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('layanan.index') }}"><i class="ri-arrow-right-double-fill"></i> Layanan</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('syarat_layanan.index') }}"><i class="ri-arrow-right-double-fill"></i> Syarat Layanan</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('penduduk_layanan.index') }}"><i class="ri-arrow-right-double-fill"></i> Penduduk Layanan</a>
                         </li>
                     </ul>
                 </div>

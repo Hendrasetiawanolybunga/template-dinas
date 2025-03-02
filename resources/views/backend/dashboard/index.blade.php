@@ -5,7 +5,6 @@
     @else
         <p>logo</p>
     @endif
-
 @endsection
 @section('title', 'Dashboard')
 @section('content')
@@ -64,7 +63,6 @@
             </div>
         </div>
     </div>
-
     <div class="row mt-4">
         <div class="col-md-4">
             <div class="card bg-info text-white">

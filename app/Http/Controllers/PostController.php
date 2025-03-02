@@ -121,8 +121,11 @@ class PostController extends Controller
         return view('frontend.pages.news', compact('posts'));
     }
 
-    public function showFrontend(Post $post) // Gunakan Route Model Binding
+    public function showFrontend($id)
     {
-        return view('frontend.pages.news_detail', compact('post'));
+        $post = Post::findOrFail($id);
+        return view('users.berita.news_detail', compact('post'));
     }
+    
+    
 }

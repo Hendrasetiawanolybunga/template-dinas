@@ -1,24 +1,23 @@
 @extends('backend.layouts.master')
 @section('title', 'Edit Kategori Layanan')
 @section('content_header')
-    Kategori Layanan/Edit
+    Edit Kategori Layanan
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col--md-12">
-            <form action="{{ route('kategori-layanan.update', $kategoriLayanan->id) }}" method="POST">
-                @csrf
-                @method('PUT')
-                <div class="form-group">
-                    <label>Nama Kategori</label>
-                    <input type="text" name="nama" class="form-control" value="{{ $kategoriLayanan->nama }}" required>
-                </div>
-                <div class="mt-2">
-                    <button type="submit" class="btn btn-primary">Update</button>
-                    <a href="{{ route('kategori-layanan.index') }}" class="btn btn-danger"><i
-                            class="ri-corner-up-left-double-line"></i> Batal</a>
-                </div>
-            </form>
-        </div>
+    <div class="card shadow p-4">
+        <form action="{{ route('kategori_layanan.update', $kategori_layanan->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="mb-3">
+                <label for="nama_kategori" class="form-label">Nama Kategori</label>
+                <input type="text" name="nama_kategori" class="form-control" value="{{ $kategori_layanan->nama_kategori }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="deskripsi" class="form-label">Deskripsi</label>
+                <textarea name="deskripsi" class="form-control">{{ $kategori_layanan->deskripsi }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+            <a href="{{ route('kategori_layanan.index') }}" class="btn btn-secondary">Batal</a>
+        </form>
     </div>
 @endsection

@@ -16,12 +16,33 @@ class FrontendController extends Controller
     {
         $banners = Banner::all();
     
-        $layanans = Layanan::all();
+        // $layanans = Layanan::all();
         $agendas = Agenda::orderBy('tanggal', 'desc')->get();
         $profil = Profil::first();
         $posts = Post::latest()->take(3)->get(); 
         $settings = Setting::first();     
-        return view('frontend.home', compact('banners', 'layanans', 'agendas', 'profil', 'posts','settings'));
+        return view('frontend.home', compact('banners', 'agendas', 'profil', 'posts','settings'));
+    }
+    public function beranda()
+    {
+        $banners = Banner::all();  
+        $profil = Profil::first();
+        $settings = Setting::first();     
+        $beritaTerbaru = Post::where('category', 'news')->latest()->take(2)->get();
+        return view('users.beranda', compact('banners','settings','profil','beritaTerbaru'));
+    }
+
+    public function footer(){
+        $profil = Profil::first();
+        return view('users.layouts.footer', compact('profil'));
+    }
+    public function visi_misi(){
+        $profil = Profil::first();
+        return view('users.profil.visi_misi', compact('profil'));
+    }
+    public function struktur_organisasi(){
+        $profil = Profil::first();
+        return view('users.profil.struktur_organisasi', compact('profil'));
     }
 
 
@@ -34,20 +55,20 @@ class FrontendController extends Controller
 {
     $profil = Profil::first();
     $layanan = Layanan::all();
-    return view('frontend.layanan.index', compact('layanan','profil'));
+    return view('users.layanan.index', compact('layanan','profil'));
 }
 
 public function layananDetail($id)
 {
 
     $layanan = Layanan::findOrFail($id);
-    return view('frontend.layanan.detail', compact('layanan'));
+    return view('users.layanan.detail', compact('layanan'));
 }
 
 public function agenda()
 {
     $agenda = Agenda::orderBy('tanggal', 'desc')->get();
-    return view('frontend.agenda.index', compact('agenda'));
+    return view('users.agenda.index', compact('agenda'));
 }
 
 public function agendaDetail($id)
@@ -62,14 +83,14 @@ public function berita()
         ->orderBy('created_at', 'desc')
         ->get(); // Ambil semua berita tanpa pagination
 
-    return view('frontend.berita.index', compact('berita'));
+    return view('users.berita.index', compact('berita'));
 }
 
 
 public function beritaDetail($id)
 {
     $berita = Post::findOrFail($id);
-    return view('frontend.berita.detail', compact('berita'));
+    return view('users.berita.news_detail', compact('berita'));
 }
 
 
