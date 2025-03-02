@@ -47,7 +47,7 @@ Route::prefix('admin')->group(function () {
 
 });
 
-Route::get('/home', [FrontendController::class, 'beranda'])->name('home');
+Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/home/agenda', [FrontendController::class, 'agenda']);
 Route::get('/home/berita', [FrontendController::class, 'berita']);
 Route::get('/home/visi_misi', [FrontendController::class, 'visi_misi']);
@@ -65,6 +65,17 @@ Route::get('berita/{post}', [PostController::class, 'showFrontend'])->name('beri
 
 Route::get('/pengajuan', [PengajuanLayananController::class, 'create'])->name('pengajuan.create');
 Route::post('/pengajuan', [PengajuanLayananController::class, 'store'])->name('pengajuan.store');
+
+
+
+// Route::get('/', [FrontendController::class, 'beranda']);
+// Route::get('/profil/visi-misi', [FrontendController::class, 'visiMisi']);
+// Route::get('/layanan', [FrontendController::class, 'layanan']);
+// Route::get('/berita', [FrontendController::class, 'berita']);
+// Route::get('/berita/{id}', [FrontendController::class, 'beritaDetail']);
+// Route::get('/agenda', [FrontendController::class, 'agenda']);
+// Route::get('/agenda/{id}', [FrontendController::class, 'agendaDetail']);
+
 
 
 

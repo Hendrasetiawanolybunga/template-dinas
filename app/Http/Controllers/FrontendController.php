@@ -23,7 +23,7 @@ class FrontendController extends Controller
         $settings = Setting::first();     
         return view('frontend.home', compact('banners', 'agendas', 'profil', 'posts','settings'));
     }
-    public function beranda()
+    public function index()
     {
         $banners = Banner::all();  
         $profil = Profil::first();
@@ -92,6 +92,5 @@ public function beritaDetail($id)
     $berita = Post::findOrFail($id);
     return view('users.berita.news_detail', compact('berita'));
 }
-
 
 }
